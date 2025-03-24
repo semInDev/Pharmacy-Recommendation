@@ -11,7 +11,7 @@ spring:
 
 spring:
   config:
-    active:
+    activate:
       on-profile: common #application-common.yml과 같은 역할
 
 #...
@@ -20,11 +20,11 @@ spring:
 
 spring:
   config:
-    active:
+    activate:
       on-profile: local
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/pharmacy-recommendation
+    url: jdbc:mariadb://localhost:3306/pharmacy_recommendation
     username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
   redis:
@@ -39,5 +39,5 @@ spring:
 
 spring:
   config:
-    active:
+    activate:
       on-profile: prod
