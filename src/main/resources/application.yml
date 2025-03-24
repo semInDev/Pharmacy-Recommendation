@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: local #default
+    group:
+      local: #local, common을 함께 구동하겠다
+        - common
+      prod: #prod, common을 함께 구동하겠다
+        - common
+
+---
+
+spring:
+  config:
+    active:
+      on-profile: common #application-common.yml과 같은 역할
+
+#...
+
+---
+
+spring:
+  config:
+    active:
+      on-profile: local
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/pharmacy-recommendation
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  redis:
+    host: localhost
+    port: 6379
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+---
+
+spring:
+  config:
+    active:
+      on-profile: prod
